@@ -12,7 +12,7 @@ public class MRandom {
     public MRandom() {
     }
     
-    public int getRandNum(int min, int max) {
+    public int getRandNum(int max, int min) {
         randNum = r.nextInt(max) + min;
         return randNum;
     }
