@@ -65,9 +65,9 @@ public class GamePlay {
             //Bugs moves
             pos = toon.move(bugs, marvin, carrot1, carrot2, mountainTop);
             if (pos[0] > 4) { pos[0] = 4;}
-            else if (pos[0] < 0) { pos[0] = 0;}
-            else if (pos[1] > 4) { pos[1] = 4;}
-            else if (pos[1] < 0) { pos[1] = 0;}
+            if (pos[0] < 0) { pos[0] = 0;}
+            if (pos[1] > 4) { pos[1] = 4;}
+            if (pos[1] < 0) { pos[1] = 0;}
             gameboard.clearSpace(bugs);
             toon.setPos(bugs, pos[0], pos[1]);
             gameboard.updateBoard(bugs);
@@ -77,11 +77,9 @@ public class GamePlay {
             if(bugs.getRow() == carrot1.getRow() && bugs.getCol() == carrot1.getCol())
             {
                 bugs.setNameC();
+            } else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol()) {
+                bugs.setNameC();
             }
-        else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol())
-        {
-            bugs.setNameC();
-        }
             if(bugs.getName().substring(2,3).equals("C") && bugs.getRow() == mountainTop.getRow() && bugs.getCol() == mountainTop.getCol()) {
                 winnerName = bugs.getName(); break;
             }
@@ -96,9 +94,9 @@ public class GamePlay {
             //Taz moves
             pos = toon.move(taz, marvin, carrot1, carrot2, mountainTop);
             if (pos[0] > 4) { pos[0] = 4;}
-            else if (pos[0] < 0) { pos[0] = 0;}
-            else if (pos[1] > 4) { pos[1] = 4;}
-            else if (pos[1] < 0) { pos[1] = 0;}
+            if (pos[0] < 0) { pos[0] = 0;}
+            if (pos[1] > 4) { pos[1] = 4;}
+            if (pos[1] < 0) { pos[1] = 0;}
             gameboard.clearSpace(taz);
             toon.setPos(taz, pos[0], pos[1]);
             gameboard.updateBoard(taz);
@@ -108,11 +106,9 @@ public class GamePlay {
             if(taz.getRow() == carrot1.getRow() && taz.getCol() == carrot1.getCol())
             {
                 taz.setNameC();
+            } else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol()) {
+                bugs.setNameC();
             }
-        else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol())
-        {
-            bugs.setNameC();
-        }
             if(taz.getName().substring(2,3).equals("C") && taz.getRow() == mountainTop.getRow() && taz.getCol() == mountainTop.getCol()) {
                 winnerName = taz.getName(); break;
             }
@@ -127,9 +123,9 @@ public class GamePlay {
             //Tweety moves
             pos = toon.move(tweety, marvin, carrot1, carrot2, mountainTop);
             if (pos[0] > 4) { pos[0] = 4;}
-            else if (pos[0] < 0) { pos[0] = 0;}
-            else if (pos[1] > 4) { pos[1] = 4;}
-            else if (pos[1] < 0) { pos[1] = 0;}
+            if (pos[0] < 0) { pos[0] = 0;}
+            if (pos[1] > 4) { pos[1] = 4;}
+            if (pos[1] < 0) { pos[1] = 0;}
             gameboard.clearSpace(tweety);
             toon.setPos(tweety, pos[0], pos[1]);
             gameboard.updateBoard(tweety);
@@ -139,11 +135,9 @@ public class GamePlay {
             if(tweety.getRow() == carrot1.getRow() && tweety.getCol() == carrot1.getCol())
             {
                 tweety.setNameC();
+            } else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol()) {
+                bugs.setNameC();
             }
-        else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol())
-        {
-            bugs.setNameC();
-        }
             if(tweety.getName().substring(2,3).equals("C") && tweety.getRow() == mountainTop.getRow() && tweety.getCol() == mountainTop.getCol()) {
                 winnerName = tweety.getName(); break;
             }
@@ -158,9 +152,9 @@ public class GamePlay {
             //Marvin moves
             pos = toon.move(marvin, marvin, carrot1, carrot2, mountainTop);
             if (pos[0] > 4) { pos[0] = 4;}
-            else if (pos[0] < 0) { pos[0] = 0;}
-            else if (pos[1] > 4) { pos[1] = 4;}
-            else if (pos[1] < 0) { pos[1] = 0;}
+            if (pos[0] < 0) { pos[0] = 0;}
+            if (pos[1] > 4) { pos[1] = 4;}
+            if (pos[1] < 0) { pos[1] = 0;}
             gameboard.clearSpace(marvin);
             System.out.println();
             System.out.println(gameboard.toString());
@@ -185,11 +179,9 @@ public class GamePlay {
             if(marvin.getRow() == carrot1.getRow() && marvin.getCol() == carrot1.getCol())
             {
                 marvin.setNameC();
+            } else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol()) {
+                bugs.setNameC();
             }
-        else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol())
-        {
-            bugs.setNameC();
-        }
             if(marvin.getName().substring(2,3).equals("C") && marvin.getRow() == mountainTop.getRow() && marvin.getCol() == mountainTop.getCol()) {
                 winnerName = marvin.getName();
                 break;
