@@ -6,7 +6,7 @@ import java.util.*;
 */
 public class Carrot {
     int row, col;
-    boolean owned = false;
+    boolean owned;
     String ownerName;
         
     Carrot() {
@@ -15,12 +15,13 @@ public class Carrot {
     Carrot(int assignRow, int assignCol) {
         row = assignRow;
         col = assignCol;
+        owned = false;
     }
     
     //Setter method
-    public void setOwnership(Toon toonTemp) {
-        ownerName = toonTemp.getName();
-        this.owned = true;
+    public void setOwnership(Toon toonTemp, Carrot carrotTemp) {
+        carrotTemp.ownerName = toonTemp.getName();
+        carrotTemp.owned = true;
     }
         
     //Getter methods
