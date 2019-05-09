@@ -48,7 +48,7 @@ public class Toon {
         //This is where the movement manipulation should take place
         //Use the other method, movementMod, for this section
          
-        if(genericToon.hasFlag() == false && !(genericToon.getNameToon().equals("Marvin"))) { //is not marven and does not have flag
+        if(!(genericToon.getName().substring(2,3).equals("c")) && !(genericToon.getName().equals("Marvin"))) { //is not marven and does not have flag
         
         
             //This is to calculate where marvin is around the player
@@ -62,25 +62,81 @@ public class Toon {
                moveMR -= 4;
                moveBM -= 4;
             } else if(genericToon.getRow() > toonMar.getRow() && genericToon.getCol() > toonMar.getCol() ) { //2 Marvin is bottom left corrner
+               //Add 4 to
+               moveTM += 4;
+               moveTR += 4;
+               moveMR += 4;
+               //Sub 4 from
+               moveML -= 4;
+               moveBR -= 4;
+               moveBM -= 4;
             
             } else if(genericToon.getRow() < toonMar.getRow() && genericToon.getCol() > toonMar.getCol() ) { //3 Marvin is top left corner
+               //Add 4 to
+               moveBM += 4;
+               moveBR += 4;
+               moveMR += 4;
+               //Sub 4 from
+               moveTL -= 4;
+               moveTM -= 4;
+               moveML -= 4;
             
             } else if(genericToon.getRow() < toonMar.getRow() && genericToon.getCol() < toonMar.getCol() ) { //4 Top right conner
+               //Add 4 to
+               moveML += 4;
+               moveBL += 4;
+               moveBM += 4;
+               //Sub 44 from
+               moveTM -= 4;
+               moveTR -= 4;
+               moveMR -= 4;
             
             } else if(genericToon.getRow() < toonMar.getRow() && genericToon.getCol() == toonMar.getCol() ) {//5 Top Middle
+               //Add 4 to
+               moveBL += 4;
+               moveBM += 4;
+               moveBR += 4;
+               //Sub 4 from
+               moveTL -= 4;
+               moveTM -= 4;
+               moveTR -= 4;
             
             } else if(genericToon.getRow() == toonMar.getRow() && genericToon.getCol() > toonMar.getCol() ) {//6 Middle Right
+               //Add 4 to
+               moveTR += 4;
+               moveMR += 4;
+               moveBR += 4;
+               //Sub 4 from
+               moveTL -= 4;
+               moveML -= 4;
+               moveBL -= 4;
             
             } else if(genericToon.getRow() > toonMar.getRow() && genericToon.getCol() == toonMar.getCol() ) {//7 Bottom Middle
+               //Add 4 to
+               moveTL += 4;
+               moveTM += 4;
+               moveTR += 4;
+               //Sub 4 from
+               moveBL -= 4;
+               moveBM -= 4;
+               moveBR -= 4;
             
             } else if(genericToon.getRow() == toonMar.getRow() && genericToon.getCol() < toonMar.getCol() ) {//8 Middle Left
+               //Add 4 to
+               moveTL += 4;
+               moveML += 4;
+               moveBL += 4;
+               //Sub 4 from
+               moveTR -= 4;
+               moveMR -= 4;
+               moveBR -= 4; 
             
             }
-         } else if(genericToon.hasFlag() == true && !(genericToon.getNameToon().equals("Marvin"))) { //is not marven and does have flag
+         } else if(genericToon.getName().substring(2,3).equals("c") && !(genericToon.getName().equals("Marvin"))) { //is not marven and does have flag
          
-         } else if(genericToon.hasFlag() == false && genericToon.getNameToon().equals("Marvin")) { // is marven and does not have flag
+         } else if(!(toonMar.getName().substring(2,3).equals("c")) && genericToon.getName().equals("Marvin")) { // is marven and does not have flag
          
-         } else if(genericToon.hasFlag() == false && genericToon.getNameToon().equals("Marvin")) { // is marven and does have flag
+         } else if(toonMar.getName().substring(2,3).equals("c") && genericToon.getName().equals("Marvin")) { // is marven and does have flag
          
          }
         
