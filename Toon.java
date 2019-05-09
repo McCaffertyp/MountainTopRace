@@ -20,7 +20,7 @@ public class Toon {
     
     //Toon movement method. Also takes into weighted movement decision based on walls,
     //mountainTop, carrots, and Marvin.
-    public int[] move(int x, int y, Toon genericToon, Toon toonMar) {
+    public int[] move(int x, int y, Toon genericToon, Toon toonMar, Carrot cOne, Carrot cTwo) {
         //Get Marvin's exact location
         int rowM = toonMar.getRow();
         int colM = toonMar.getCol();
@@ -50,6 +50,178 @@ public class Toon {
          
         if(!(genericToon.getName().substring(2,3).equals("c")) && !(genericToon.getName().equals("Marvin"))) { //is not marven and does not have flag
         
+        //Chase after the flag
+            if(( Math.abs(cOne.getRow()) - Math.abs(genericToon.getRow()) ) + ( Math.abs(cOne.getCol()) - Math.abs(genericToon.getCol()) ) > ( Math.abs(cTwo.getRow()) - Math.abs(genericToon.getRow()) )
+                      + (Math.abs(cTwo.getCol()) - Math.abs(genericToon.getCol()) ))//carrot one is closer
+                      
+            {
+            
+                     //This is to calculate the character chasing the carrot
+                  if(genericToon.getRow() > cOne.getRow() && genericToon.getCol() < cOne.getCol() ) { //1 in the bottom right corrner
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveTM -= 6;
+                     moveML -= 6;
+                     //Add 6 to
+                     moveBR += 6;
+                     moveMR += 6;
+                     moveBM += 6;
+                  } else if(genericToon.getRow() > cOne.getRow() && genericToon.getCol() > cOne.getCol() ) { //2 bottom left corrner
+                     //Sub 6 from
+                     moveTM -= 6;
+                     moveTR -= 6;
+                     moveMR -= 6;
+                     //Add 6 to
+                     moveML += 6;
+                     moveBR += 6;
+                     moveBM += 6;
+                  
+                  } else if(genericToon.getRow() < cOne.getRow() && genericToon.getCol() > cOne.getCol() ) { //3 is top left corner
+                     //Sub 6 from
+                     moveBM -= 6;
+                     moveBR -= 6;
+                     moveMR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveTM += 6;
+                     moveML += 6;
+                  
+                  } else if(genericToon.getRow() < cOne.getRow() && genericToon.getCol() < cOne.getCol() ) { //4 Top right conner
+                     //Sub 6 from
+                     moveML -= 6;
+                     moveBL -= 6;
+                     moveBM -= 6;
+                     //Add 6 to
+                     moveTM += 6;
+                     moveTR += 6;
+                     moveMR += 6;
+                  
+                  } else if(genericToon.getRow() < cOne.getRow() && genericToon.getCol() == cOne.getCol() ) {//5 Top Middle
+                     //Sub 6 from
+                     moveBL -= 6;
+                     moveBM -= 6;
+                     moveBR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveTM += 6;
+                     moveTR += 6;
+                  
+                  } else if(genericToon.getRow() == cOne.getRow() && genericToon.getCol() > cOne.getCol() ) {//6 Middle Right
+                     //Sub 6 from
+                     moveTR -= 6;
+                     moveMR -= 6;
+                     moveBR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveML += 6;
+                     moveBL += 6;
+                  
+                  } else if(genericToon.getRow() > cOne.getRow() && genericToon.getCol() == cOne.getCol() ) {//7 Bottom Middle
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveTM -= 6;
+                     moveTR -= 6;
+                     //Add 6 to
+                     moveBL += 6;
+                     moveBM += 6;
+                     moveBR += 6;
+                  
+                  } else if(genericToon.getRow() == cOne.getRow() && genericToon.getCol() < cOne.getCol() ) {//8 Middle Left
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveML -= 6;
+                     moveBL -= 6;
+                     //Add 6 to
+                     moveTR += 6;
+                     moveMR += 6;
+                     moveBR += 6; 
+                  
+                  }
+            }
+            else//carrot two is closer
+            {
+                  //This is to calculate the character chasing the carrot
+                  if(genericToon.getRow() > cTwo.getRow() && genericToon.getCol() < cTwo.getCol() ) { //1 in the bottom right corrner
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveTM -= 6;
+                     moveML -= 6;
+                     //Add 6 to
+                     moveBR += 6;
+                     moveMR += 6;
+                     moveBM += 6;
+                  } else if(genericToon.getRow() > cTwo.getRow() && genericToon.getCol() > cTwo.getCol() ) { //2 bottom left corrner
+                     //Sub 6 from
+                     moveTM -= 6;
+                     moveTR -= 6;
+                     moveMR -= 6;
+                     //Add 6 to
+                     moveML += 6;
+                     moveBR += 6;
+                     moveBM += 6;
+                  
+                  } else if(genericToon.getRow() < cTwo.getRow() && genericToon.getCol() > cTwo.getCol() ) { //3 is top left corner
+                     //Sub 6 from
+                     moveBM -= 6;
+                     moveBR -= 6;
+                     moveMR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveTM += 6;
+                     moveML += 6;
+                  
+                  } else if(genericToon.getRow() < cTwo.getRow() && genericToon.getCol() < cTwo.getCol() ) { //4 Top right conner
+                     //Sub 6 from
+                     moveML -= 6;
+                     moveBL -= 6;
+                     moveBM -= 6;
+                     //Add 6 to
+                     moveTM += 6;
+                     moveTR += 6;
+                     moveMR += 6;
+                  
+                  } else if(genericToon.getRow() < cTwo.getRow() && genericToon.getCol() == cTwo.getCol() ) {//5 Top Middle
+                     //Sub 6 from
+                     moveBL -= 6;
+                     moveBM -= 6;
+                     moveBR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveTM += 6;
+                     moveTR += 6;
+                  
+                  } else if(genericToon.getRow() == cTwo.getRow() && genericToon.getCol() > cTwo.getCol() ) {//6 Middle Right
+                     //Sub 6 from
+                     moveTR -= 6;
+                     moveMR -= 6;
+                     moveBR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveML += 6;
+                     moveBL += 6;
+                  
+                  } else if(genericToon.getRow() > cTwo.getRow() && genericToon.getCol() == cTwo.getCol() ) {//7 Bottom Middle
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveTM -= 6;
+                     moveTR -= 6;
+                     //Add 6 to
+                     moveBL += 6;
+                     moveBM += 6;
+                     moveBR += 6;
+                  
+                  } else if(genericToon.getRow() == cTwo.getRow() && genericToon.getCol() < cTwo.getCol() ) {//8 Middle Left
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveML -= 6;
+                     moveBL -= 6;
+                     //Add 6 to
+                     moveTR += 6;
+                     moveMR += 6;
+                     moveBR += 6; 
+                  
+                  }
+            }
         
             //This is to calculate where marvin is around the player
             if(genericToon.getRow() > toonMar.getRow() && genericToon.getCol() < toonMar.getCol() ) { //1 Marvin is in the bottom right corrner
@@ -134,9 +306,268 @@ public class Toon {
             }
          } else if(genericToon.getName().substring(2,3).equals("c") && !(genericToon.getName().equals("Marvin"))) { //is not marven and does have flag
          
-         } else if(!(toonMar.getName().substring(2,3).equals("c")) && genericToon.getName().equals("Marvin")) { // is marven and does not have flag
+            //This is to calculate where marvin is around the player
+            if(genericToon.getRow() > toonMar.getRow() && genericToon.getCol() < toonMar.getCol() ) { //1 Marvin is in the bottom right corrner
+               //Add 4 to
+               moveTL += 4;
+               moveTM += 4;
+               moveML += 4;
+               //Sub 4 from
+               moveBR -= 4;
+               moveMR -= 4;
+               moveBM -= 4;
+            } else if(genericToon.getRow() > toonMar.getRow() && genericToon.getCol() > toonMar.getCol() ) { //2 Marvin is bottom left corrner
+               //Add 4 to
+               moveTM += 4;
+               moveTR += 4;
+               moveMR += 4;
+               //Sub 4 from
+               moveML -= 4;
+               moveBR -= 4;
+               moveBM -= 4;
+            
+            } else if(genericToon.getRow() < toonMar.getRow() && genericToon.getCol() > toonMar.getCol() ) { //3 Marvin is top left corner
+               //Add 4 to
+               moveBM += 4;
+               moveBR += 4;
+               moveMR += 4;
+               //Sub 4 from
+               moveTL -= 4;
+               moveTM -= 4;
+               moveML -= 4;
+            
+            } else if(genericToon.getRow() < toonMar.getRow() && genericToon.getCol() < toonMar.getCol() ) { //4 Top right conner
+               //Add 4 to
+               moveML += 4;
+               moveBL += 4;
+               moveBM += 4;
+               //Sub 44 from
+               moveTM -= 4;
+               moveTR -= 4;
+               moveMR -= 4;
+            
+            } else if(genericToon.getRow() < toonMar.getRow() && genericToon.getCol() == toonMar.getCol() ) {//5 Top Middle
+               //Add 4 to
+               moveBL += 4;
+               moveBM += 4;
+               moveBR += 4;
+               //Sub 4 from
+               moveTL -= 4;
+               moveTM -= 4;
+               moveTR -= 4;
+            
+            } else if(genericToon.getRow() == toonMar.getRow() && genericToon.getCol() > toonMar.getCol() ) {//6 Middle Right
+               //Add 4 to
+               moveTR += 4;
+               moveMR += 4;
+               moveBR += 4;
+               //Sub 4 from
+               moveTL -= 4;
+               moveML -= 4;
+               moveBL -= 4;
+            
+            } else if(genericToon.getRow() > toonMar.getRow() && genericToon.getCol() == toonMar.getCol() ) {//7 Bottom Middle
+               //Add 4 to
+               moveTL += 4;
+               moveTM += 4;
+               moveTR += 4;
+               //Sub 4 from
+               moveBL -= 4;
+               moveBM -= 4;
+               moveBR -= 4;
+            
+            } else if(genericToon.getRow() == toonMar.getRow() && genericToon.getCol() < toonMar.getCol() ) {//8 Middle Left
+               //Add 4 to
+               moveTL += 4;
+               moveML += 4;
+               moveBL += 4;
+               //Sub 4 from
+               moveTR -= 4;
+               moveMR -= 4;
+               moveBR -= 4; 
+            
+            }
          
-         } else if(toonMar.getName().substring(2,3).equals("c") && genericToon.getName().equals("Marvin")) { // is marven and does have flag
+         } 
+         else if(!(toonMar.getName().substring(2,3).equals("c")) && genericToon.getName().equals("Marvin")) 
+         { // is marven and does not have flag
+         
+            //Chase after the flag
+            if(( Math.abs(cOne.getRow()) - Math.abs(genericToon.getRow()) ) + ( Math.abs(cOne.getCol()) - Math.abs(genericToon.getCol()) ) > ( Math.abs(cTwo.getRow()) - Math.abs(genericToon.getRow()) )
+                      + (Math.abs(cTwo.getCol()) - Math.abs(genericToon.getCol()) ))//carrot one is closer
+                      
+            {
+            
+                     //This is to calculate the character chasing the carrot
+                  if(genericToon.getRow() > cOne.getRow() && genericToon.getCol() < cOne.getCol() ) { //1 in the bottom right corrner
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveTM -= 6;
+                     moveML -= 6;
+                     //Add 6 to
+                     moveBR += 6;
+                     moveMR += 6;
+                     moveBM += 6;
+                  } else if(genericToon.getRow() > cOne.getRow() && genericToon.getCol() > cOne.getCol() ) { //2 bottom left corrner
+                     //Sub 6 from
+                     moveTM -= 6;
+                     moveTR -= 6;
+                     moveMR -= 6;
+                     //Add 6 to
+                     moveML += 6;
+                     moveBR += 6;
+                     moveBM += 6;
+                  
+                  } else if(genericToon.getRow() < cOne.getRow() && genericToon.getCol() > cOne.getCol() ) { //3 is top left corner
+                     //Sub 6 from
+                     moveBM -= 6;
+                     moveBR -= 6;
+                     moveMR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveTM += 6;
+                     moveML += 6;
+                  
+                  } else if(genericToon.getRow() < cOne.getRow() && genericToon.getCol() < cOne.getCol() ) { //4 Top right conner
+                     //Sub 6 from
+                     moveML -= 6;
+                     moveBL -= 6;
+                     moveBM -= 6;
+                     //Add 6 to
+                     moveTM += 6;
+                     moveTR += 6;
+                     moveMR += 6;
+                  
+                  } else if(genericToon.getRow() < cOne.getRow() && genericToon.getCol() == cOne.getCol() ) {//5 Top Middle
+                     //Sub 6 from
+                     moveBL -= 6;
+                     moveBM -= 6;
+                     moveBR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveTM += 6;
+                     moveTR += 6;
+                  
+                  } else if(genericToon.getRow() == cOne.getRow() && genericToon.getCol() > cOne.getCol() ) {//6 Middle Right
+                     //Sub 6 from
+                     moveTR -= 6;
+                     moveMR -= 6;
+                     moveBR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveML += 6;
+                     moveBL += 6;
+                  
+                  } else if(genericToon.getRow() > cOne.getRow() && genericToon.getCol() == cOne.getCol() ) {//7 Bottom Middle
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveTM -= 6;
+                     moveTR -= 6;
+                     //Add 6 to
+                     moveBL += 6;
+                     moveBM += 6;
+                     moveBR += 6;
+                  
+                  } else if(genericToon.getRow() == cOne.getRow() && genericToon.getCol() < cOne.getCol() ) {//8 Middle Left
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveML -= 6;
+                     moveBL -= 6;
+                     //Add 6 to
+                     moveTR += 6;
+                     moveMR += 6;
+                     moveBR += 6; 
+                  
+                  }
+            }
+            else//carrot two is closer
+            {
+                  //This is to calculate the character chasing the carrot
+                  if(genericToon.getRow() > cTwo.getRow() && genericToon.getCol() < cTwo.getCol() ) { //1 in the bottom right corrner
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveTM -= 6;
+                     moveML -= 6;
+                     //Add 6 to
+                     moveBR += 6;
+                     moveMR += 6;
+                     moveBM += 6;
+                  } else if(genericToon.getRow() > cTwo.getRow() && genericToon.getCol() > cTwo.getCol() ) { //2 bottom left corrner
+                     //Sub 6 from
+                     moveTM -= 6;
+                     moveTR -= 6;
+                     moveMR -= 6;
+                     //Add 6 to
+                     moveML += 6;
+                     moveBR += 6;
+                     moveBM += 6;
+                  
+                  } else if(genericToon.getRow() < cTwo.getRow() && genericToon.getCol() > cTwo.getCol() ) { //3 is top left corner
+                     //Sub 6 from
+                     moveBM -= 6;
+                     moveBR -= 6;
+                     moveMR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveTM += 6;
+                     moveML += 6;
+                  
+                  } else if(genericToon.getRow() < cTwo.getRow() && genericToon.getCol() < cTwo.getCol() ) { //4 Top right conner
+                     //Sub 6 from
+                     moveML -= 6;
+                     moveBL -= 6;
+                     moveBM -= 6;
+                     //Add 6 to
+                     moveTM += 6;
+                     moveTR += 6;
+                     moveMR += 6;
+                  
+                  } else if(genericToon.getRow() < cTwo.getRow() && genericToon.getCol() == cTwo.getCol() ) {//5 Top Middle
+                     //Sub 6 from
+                     moveBL -= 6;
+                     moveBM -= 6;
+                     moveBR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveTM += 6;
+                     moveTR += 6;
+                  
+                  } else if(genericToon.getRow() == cTwo.getRow() && genericToon.getCol() > cTwo.getCol() ) {//6 Middle Right
+                     //Sub 6 from
+                     moveTR -= 6;
+                     moveMR -= 6;
+                     moveBR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveML += 6;
+                     moveBL += 6;
+                  
+                  } else if(genericToon.getRow() > cTwo.getRow() && genericToon.getCol() == cTwo.getCol() ) {//7 Bottom Middle
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveTM -= 6;
+                     moveTR -= 6;
+                     //Add 6 to
+                     moveBL += 6;
+                     moveBM += 6;
+                     moveBR += 6;
+                  
+                  } else if(genericToon.getRow() == cTwo.getRow() && genericToon.getCol() < cTwo.getCol() ) {//8 Middle Left
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveML -= 6;
+                     moveBL -= 6;
+                     //Add 6 to
+                     moveTR += 6;
+                     moveMR += 6;
+                     moveBR += 6; 
+                  
+                  }
+            }
+            
+         
+         }
+         else if(toonMar.getName().substring(2,3).equals("c") && genericToon.getName().equals("Marvin")) { // is marven and does have flag
          
          }
         
