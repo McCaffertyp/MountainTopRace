@@ -20,10 +20,14 @@ public class Toon {
     
     //Toon movement method. Also takes into weighted movement decision based on walls,
     //mountainTop, carrots, and Marvin.
-    public int[] move(int x, int y, Toon genericToon, Toon toonMar, Carrot cOne, Carrot cTwo, MountainTop mound) {
+    public int[] move(Toon genericToon, Toon toonMar, Carrot cOne, Carrot cTwo, MountainTop mound) {
         //Get Marvin's exact location
         int rowM = toonMar.getRow();
         int colM = toonMar.getCol();
+        
+        //Get generic toons location
+        int x = genericToon.getRow();
+        int y = genericToon.getCol();
         
         //Get a number between 1 and 90
         int percent = random.getRandNum(90, 1);
@@ -779,7 +783,16 @@ public class Toon {
         int[] updatedQuards = {xToReturn,yToReturn};
         return updatedQuards;
     }
-
+    
+    public void respawn(Toon respToon) {
+        String name = respToon.getName().substring(0, 1);
+        switch(name) {
+            case "B": respToon.setPos(respToon, 4, 1); break;
+            case "D": respToon.setPos(respToon, 3, 3); break;
+            case "T": respToon.setPos(respToon, 0, 1); break;
+        }
+    }
+    
     //Setter methods
     public void setRow(Toon toonS, int newRow) {
         toonS.row = newRow;
