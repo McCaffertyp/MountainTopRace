@@ -62,6 +62,11 @@ public class GamePlay {
             gameboard.clearSpace(bugs);
             toon.setPos(bugs, pos[0], pos[1]);
             gameboard.updateBoard(bugs);
+            if(bugs.getName.substring(2,3).equals("C") && bugs.getRow() == mountainTop.getRow() && bugs.getCol() == mountainTop.getCol())
+            {
+                winnerName = bugs.getName();
+                break;
+            }
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -73,6 +78,11 @@ public class GamePlay {
             gameboard.clearSpace(taz);
             toon.setPos(taz, pos[0], pos[1]);
             gameboard.updateBoard(taz);
+            if(taz.getName.substring(2,3).equals("C") && taz.getRow() == mountainTop.getRow() && taz.getCol() == mountainTop.getCol())
+            {
+                winnerName = taz.getName();
+                break;
+            }
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -84,6 +94,17 @@ public class GamePlay {
             gameboard.clearSpace(tweety);
             toon.setPos(tweety, pos[0], pos[1]);
             gameboard.updateBoard(tweety);
+            if(tweety.getName.substring(2,3).equals("C") && tweety.getRow() == mountainTop.getRow() && tweety.getCol() == mountainTop.getCol())
+            {
+                winnerName = tweety.getName();
+                break;
+            }
+            if(marvin.getName.substring(2,3).equals("C") && marvin.getRow() == mountainTop.getRow() && marvin.getCol() == mountainTop.getCol())
+            {
+                winnerName = marvin.getName();
+                break;
+            }
+            
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
