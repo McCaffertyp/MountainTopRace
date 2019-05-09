@@ -6,14 +6,14 @@ import java.util.*;
 */
 public class Toon {
     int row, col;
-    String name;
+    String name = "";
     MRandom random = new MRandom();
     
     public Toon() {
     }
     
     public Toon(String assignName, int assignRow, int assignCol) {
-        name = assignName;
+        name += assignName;
         row = assignRow;
         col = assignCol;
     }
@@ -800,11 +800,11 @@ public class Toon {
     }
     
     public void setNameC(Toon toonN) {
-        toonN.name =  name.substring(0, 1) + "(C)";
+        toonN.name = toonN.name.substring(0, 1) + "(C)";
     }
     
     public void setNameN(Toon toonN) {
-        toonN.name = toonN.name.substring(0, 1);
+        toonN.name = toonN.name.substring(0, 1) + "   ";
     }
     
     //Getter methods
