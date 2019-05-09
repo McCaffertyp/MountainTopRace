@@ -46,8 +46,10 @@ public class GamePlay {
         
         //While loop for geting a winner
         //Order of movement: bugs, taz, tweety, marvin
+        int marvinTurns = 0;
         while (winner == false) {
-            int marvinTurns = 0;
+            boolean match = true;
+            int[][] rowCol = new int[6][2];
             
             try {
                 Thread.sleep(1000);
@@ -91,22 +93,31 @@ public class GamePlay {
             pos = toon.move(marvin, marvin);
             gameboard.clearSpace(marvin);
             toon.setPos(marvin, pos[0], pos[1]);
+            rowCol[0][0] = bugs.getRow();
+            rowCol[0][1] = bugs.getCol();
+            rowCol[1][0] = taz.getRow();
+            rowCol[1][1] = taz.getCol();
+            rowCol[2][0] = tweety.getRow();
+            rowCol[2][1] = tweety.getCol();
+            for (int i = 0; i < 3; i++) {
+                if (marvin.getRow() == rowCol[i][0] && marvin.getCol() == rowCol[i][1]) {
+                    switch (i) {
+                        case 0: toon.respawn(bugs); break;
+                        case 1: toon.respawn(taz); break;
+                        case 2: toon.respawn(tweety); break;
+                    }
+                }
+            }
             gameboard.updateBoard(marvin);
             marvinTurns++;
             if (marvinTurns % 3 == 0) {
+                rowCol[3][0] = marvin.getRow();
+                rowCol[3][1] = marvin.getCol();
+                rowCol[4][0] = carrot1.getRow();
+                rowCol[4][1] = carrot1.getCol();
+                rowCol[5][0] = carrot2.getRow();
+                rowCol[5][1] = carrot2.getCol();
                 while (match) {
-                    rowCol[0][0] = bugs.getRow();
-                    rowCol[0][1] = bugs.getCol();
-                    rowCol[1][0] = taz.getRow();
-                    rowCol[1][1] = taz.getCol();
-                    rowCol[2][0] = tweety.getRow();
-                    rowCol[2][1] = tweety.getCol();
-                    rowCol[3][0] = marvin.getRow();
-                    rowCol[3][1] = marvin.getCol();
-                    rowCol[4][0] = carrot1.getRow();
-                    rowCol[4][1] = carrot1.getCol();
-                    rowCol[5][0] = carrot2.getRow();
-                    rowCol[5][1] = carrot2.getCol();
                     for (int i = 0; i < 6; i++) {
                         if (pos[0] == rowCol[i][0] && pos[1] == rowCol[i][1]) {
                             match = true;
