@@ -800,7 +800,7 @@ public class Toon {
     }
     
     public void setNameC(Toon toonN) {
-        toonN.name = name + "(C)";
+        toonN.name =  name.substring(0, 1) + "(C)";
     }
     
     public void setNameN(Toon toonN) {
