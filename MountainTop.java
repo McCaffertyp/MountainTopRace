@@ -14,13 +14,16 @@ public class MountainTop {
         row = assignRow;
         col = assignCol;
     }
-      
+    
+    public void mtRespawn(int[] place) {
+        setMountTopPos(place[0], place[1]);
+    }
+    
     //Setter method
     public void setMountTopPos(int newRow, int newCol) {
         row = newRow;
         col = newCol;
     }
-        
        
     //Getter methods
     public int getRow() {
