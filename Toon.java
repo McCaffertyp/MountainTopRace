@@ -50,21 +50,30 @@ public class Toon {
          
         if(genericToon.hasFlag() == false && !(genericToon.getNameToon().equals("Marvin"))) { //is not marven and does not have flag
         
-            if(genericToon.getRow < Marvin.getRow && genericToon.getCol > Marvin.getCol ) { //1 Marvin is in the bottom right corrner
+        
+            //This is to calculate where marvin is around the player
+            if(genericToon.getRow() > toonMar.getRow() && genericToon.getCol() < toonMar.getCol() ) { //1 Marvin is in the bottom right corrner
+               //Add 4 to
+               moveTL += 4;
+               moveTM += 4;
+               moveML += 4;
+               //Sub 4 from
+               moveBR -= 4;
+               moveMR -= 4;
+               moveBM -= 4;
+            } else if(genericToon.getRow() > toonMar.getRow() && genericToon.getCol() > toonMar.getCol() ) { //2 Marvin is bottom left corrner
             
-            } else if(genericToon.getRow > Marvin.getRow && genericToon.getCol > Marvin.getCol ) { //2 Marvin is bottom left corrner
+            } else if(genericToon.getRow() < toonMar.getRow() && genericToon.getCol() > toonMar.getCol() ) { //3 Marvin is top left corner
             
-            } else if(genericToon.getRow > Marvin.getRow && genericToon.getCol < Marvin.getCol ) { //3 Marvin is top left corner
+            } else if(genericToon.getRow() < toonMar.getRow() && genericToon.getCol() < toonMar.getCol() ) { //4 Top right conner
             
-            } else if() {
+            } else if(genericToon.getRow() < toonMar.getRow() && genericToon.getCol() == toonMar.getCol() ) {//5 Top Middle
             
-            } else if() {
+            } else if(genericToon.getRow() == toonMar.getRow() && genericToon.getCol() > toonMar.getCol() ) {//6 Middle Right
             
-            } else if() {
+            } else if(genericToon.getRow() > toonMar.getRow() && genericToon.getCol() == toonMar.getCol() ) {//7 Bottom Middle
             
-            } else if() {
-            
-            } else if() {
+            } else if(genericToon.getRow() == toonMar.getRow() && genericToon.getCol() < toonMar.getCol() ) {//8 Middle Left
             
             }
          } else if(genericToon.hasFlag() == true && !(genericToon.getNameToon().equals("Marvin"))) { //is not marven and does have flag
