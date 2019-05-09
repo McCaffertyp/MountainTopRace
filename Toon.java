@@ -20,7 +20,7 @@ public class Toon {
     
     //Toon movement method. Also takes into weighted movement decision based on walls,
     //mountainTop, carrots, and Marvin.
-    public int[] move(int x, int y, Toon genericToon, Toon toonMar, Carrot cOne, Carrot cTwo) {
+    public int[] move(int x, int y, Toon genericToon, Toon toonMar, Carrot cOne, Carrot cTwo, MountainTop mound) {
         //Get Marvin's exact location
         int rowM = toonMar.getRow();
         int colM = toonMar.getCol();
@@ -387,6 +387,96 @@ public class Toon {
                moveBR -= 4; 
             
             }
+            
+            
+            
+            
+            
+            
+             //This is to calculate the character going to the mountain
+                  if(genericToon.getRow() > mound.getRow() && genericToon.getCol() < mound.getCol() ) { //1 in the bottom right corrner
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveTM -= 6;
+                     moveML -= 6;
+                     //Add 6 to
+                     moveBR += 6;
+                     moveMR += 6;
+                     moveBM += 6;
+                  } else if(genericToon.getRow() > mound.getRow() && genericToon.getCol() > mound.getCol() ) { //2 bottom left corrner
+                     //Sub 6 from
+                     moveTM -= 6;
+                     moveTR -= 6;
+                     moveMR -= 6;
+                     //Add 6 to
+                     moveML += 6;
+                     moveBR += 6;
+                     moveBM += 6;
+                  
+                  } else if(genericToon.getRow() < mound.getRow() && genericToon.getCol() > mound.getCol() ) { //3 is top left corner
+                     //Sub 6 from
+                     moveBM -= 6;
+                     moveBR -= 6;
+                     moveMR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveTM += 6;
+                     moveML += 6;
+                  
+                  } else if(genericToon.getRow() < mound.getRow() && genericToon.getCol() < mound.getCol() ) { //4 Top right conner
+                     //Sub 6 from
+                     moveML -= 6;
+                     moveBL -= 6;
+                     moveBM -= 6;
+                     //Add 6 to
+                     moveTM += 6;
+                     moveTR += 6;
+                     moveMR += 6;
+                  
+                  } else if(genericToon.getRow() < mound.getRow() && genericToon.getCol() == mound.getCol() ) {//5 Top Middle
+                     //Sub 6 from
+                     moveBL -= 6;
+                     moveBM -= 6;
+                     moveBR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveTM += 6;
+                     moveTR += 6;
+                  
+                  } else if(genericToon.getRow() == mound.getRow() && genericToon.getCol() > mound.getCol() ) {//6 Middle Right
+                     //Sub 6 from
+                     moveTR -= 6;
+                     moveMR -= 6;
+                     moveBR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveML += 6;
+                     moveBL += 6;
+                  
+                  } else if(genericToon.getRow() > mound.getRow() && genericToon.getCol() == mound.getCol() ) {//7 Bottom Middle
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveTM -= 6;
+                     moveTR -= 6;
+                     //Add 6 to
+                     moveBL += 6;
+                     moveBM += 6;
+                     moveBR += 6;
+                  
+                  } else if(genericToon.getRow() == mound.getRow() && genericToon.getCol() < mound.getCol() ) {//8 Middle Left
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveML -= 6;
+                     moveBL -= 6;
+                     //Add 6 to
+                     moveTR += 6;
+                     moveMR += 6;
+                     moveBR += 6; 
+                  
+                  }
+                  
+                  
+                  
          
          } 
          else if(!(toonMar.getName().substring(2,3).equals("c")) && genericToon.getName().equals("Marvin")) 
@@ -568,6 +658,88 @@ public class Toon {
          
          }
          else if(toonMar.getName().substring(2,3).equals("c") && genericToon.getName().equals("Marvin")) { // is marven and does have flag
+         
+                  //This is to calculate the character going to the mountain
+                  if(genericToon.getRow() > mound.getRow() && genericToon.getCol() < mound.getCol() ) { //1 in the bottom right corrner
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveTM -= 6;
+                     moveML -= 6;
+                     //Add 6 to
+                     moveBR += 6;
+                     moveMR += 6;
+                     moveBM += 6;
+                  } else if(genericToon.getRow() > mound.getRow() && genericToon.getCol() > mound.getCol() ) { //2 bottom left corrner
+                     //Sub 6 from
+                     moveTM -= 6;
+                     moveTR -= 6;
+                     moveMR -= 6;
+                     //Add 6 to
+                     moveML += 6;
+                     moveBR += 6;
+                     moveBM += 6;
+                  
+                  } else if(genericToon.getRow() < mound.getRow() && genericToon.getCol() > mound.getCol() ) { //3 is top left corner
+                     //Sub 6 from
+                     moveBM -= 6;
+                     moveBR -= 6;
+                     moveMR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveTM += 6;
+                     moveML += 6;
+                  
+                  } else if(genericToon.getRow() < mound.getRow() && genericToon.getCol() < mound.getCol() ) { //4 Top right conner
+                     //Sub 6 from
+                     moveML -= 6;
+                     moveBL -= 6;
+                     moveBM -= 6;
+                     //Add 6 to
+                     moveTM += 6;
+                     moveTR += 6;
+                     moveMR += 6;
+                  
+                  } else if(genericToon.getRow() < mound.getRow() && genericToon.getCol() == mound.getCol() ) {//5 Top Middle
+                     //Sub 6 from
+                     moveBL -= 6;
+                     moveBM -= 6;
+                     moveBR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveTM += 6;
+                     moveTR += 6;
+                  
+                  } else if(genericToon.getRow() == mound.getRow() && genericToon.getCol() > mound.getCol() ) {//6 Middle Right
+                     //Sub 6 from
+                     moveTR -= 6;
+                     moveMR -= 6;
+                     moveBR -= 6;
+                     //Add 6 to
+                     moveTL += 6;
+                     moveML += 6;
+                     moveBL += 6;
+                  
+                  } else if(genericToon.getRow() > mound.getRow() && genericToon.getCol() == mound.getCol() ) {//7 Bottom Middle
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveTM -= 6;
+                     moveTR -= 6;
+                     //Add 6 to
+                     moveBL += 6;
+                     moveBM += 6;
+                     moveBR += 6;
+                  
+                  } else if(genericToon.getRow() == mound.getRow() && genericToon.getCol() < mound.getCol() ) {//8 Middle Left
+                     //Sub 6 from
+                     moveTL -= 6;
+                     moveML -= 6;
+                     moveBL -= 6;
+                     //Add 6 to
+                     moveTR += 6;
+                     moveMR += 6;
+                     moveBR += 6; 
+                  
+                  }
          
          }
         
