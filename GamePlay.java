@@ -4,7 +4,7 @@ import java.util.*;
     Jack Van Well
     Paul McCafferty
 */
-public class GamePlay {
+public class GamePlay extends Thread{
     
 
     public static void main(String[] args) {
