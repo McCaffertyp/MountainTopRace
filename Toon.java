@@ -22,63 +22,95 @@ public class Toon {
     
     //Toon movement method. Also takes into weighted movement decision based on walls,
     //mountainTop, carrots, and Marvin.
-    public void moveToon(Toon toonTemp, Toon marvTemp, Carrot carrotO, Carrot carrotT, Board boardTemp) {
-        int tempRow = toonTemp.getRow(), tempCol = toonTemp.getCol();
-        int tempRowM = marvTemp.getRow(), tempColM = marvTemp.getCol();
+    public int[] move(int x, int y, Toon genericToon) {
+        //get a number between 1 and 90
+        MRandom random = new MRandom();
+        int percent = random.getRandNum(90, 1);
+         
+        //Each of these ints changes the chance a character will move to that spot!
+        //Cheat sheet integer name
+        //L = left
+        //M = middle
+        //R = right
+        //T = top
+        //B = bottom
+        int moveTL = 10;
+        int moveTM = 10;
+        int moveTR = 10;
+        int moveML = 10;
+        int moveMM = 10;
+        int moveMR = 10;
+        int moveBL = 10;
+        int moveBM = 10;
+        int moveBR = 10;
+         
+        //This is where the movement manipulation should take place
+        //Use the other method, movementMod, for this section
+         
+        if(genericToon.hasFlag() == false && !(genericToon.getNameToon().equals("Marvin"))) { //is not marven and does not have flag
         
-        if (toonTemp.equals(marvTemp)) { //If Marvin is the one moving.
-            while (moved == false) {
-                num = random.getRandNum(9, 0);
-                switch(num) {
-                    /*All these statements will probably have "ArrayIndexOutofBounds"
-                    exception thrown due to not checking if the board is already
-                    at the edge. For Marvin, there also needs to be a check for if
-                    he tries to move onto a place with another person, which if he does,
-                    he checks if they have a carrot, if they do, he takes the carrot and
-                    shoots them, otherwise, he just shoots them, sending them back to
-                    wherever they had spawned.
-                    */
-                    case 0: break;
-                    case 1: if (boardTemp.getPlace(tempRow, tempCol+1).equals("     -")) {
-                                toonTemp.setCol(toonTemp, tempCol+1);
-                                moved = true;
-                            } break;
-                    case 2: if (boardTemp.getPlace(tempRow-1, tempCol+1).equals("     -")) {
-                                toonTemp.setRow(toonTemp, tempRow-1);
-                                toonTemp.setCol(toonTemp, tempCol+1);
-                                moved = true;
-                            } break;
-                    case 3: if (boardTemp.getPlace(tempRow-1, tempCol).equals("     -")) {
-                                toonTemp.setRow(toonTemp, tempRow-1);
-                                moved = true;
-                            } break;
-                    case 4: if (boardTemp.getPlace(tempRow-1, tempCol-1).equals("     -")) {
-                                toonTemp.setRow(toonTemp, tempRow-1);
-                                toonTemp.setCol(toonTemp, tempCol-1);
-                                moved = true;
-                            } break;
-                    case 5: if (boardTemp.getPlace(tempRow, tempCol-1).equals("     -")) {
-                                toonTemp.setCol(toonTemp, tempCol-1);
-                                moved = true;
-                            } break;
-                    case 6: if (boardTemp.getPlace(tempRow+1, tempCol-1).equals("     -")) {
-                                toonTemp.setRow(toonTemp, tempRow+1);
-                                toonTemp.setCol(toonTemp, tempCol-1);
-                                moved = true;
-                            } break;
-                    case 7: if (boardTemp.getPlace(tempRow+1, tempCol).equals("     -")) {
-                                toonTemp.setRow(toonTemp, tempRow+1);
-                                moved = true;;
-                            } break;
-                    case 8: if (boardTemp.getPlace(tempRow+1, tempCol+1).equals("     -")) {
-                                toonTemp.setRow(toonTemp, tempRow+1);
-                                toonTemp.setCol(toonTemp, tempCol+1);
-                                moved = true;
-                            } break;
-                }
+            if(genericToon.getRow < Marvin.getRow && genericToon.getCol > Marvin.getCol ) { //1 Marvin is in the bottom right corrner
+            
+            } else if(genericToon.getRow > Marvin.getRow && genericToon.getCol > Marvin.getCol ) { //2 Marvin is bottom left corrner
+            
+            } else if(genericToon.getRow > Marvin.getRow && genericToon.getCol < Marvin.getCol ) { //3 Marvin is top left corner
+            
+            } else if() {
+            
+            } else if() {
+            
+            } else if() {
+            
+            } else if() {
+            
+            } else if() {
+            
             }
+         } else if(genericToon.hasFlag() == true && !(genericToon.getNameToon().equals("Marvin"))) { //is not marven and does have flag
+         
+         } else if(genericToon.hasFlag() == false && genericToon.getNameToon().equals("Marvin")) { // is marven and does not have flag
+         
+         } else if(genericToon.hasFlag() == false && genericToon.getNameToon().equals("Marvin")) { // is marven and does have flag
+         
+         }
+        
+        //This top level of if statments decides which path a toon will take 
+        
+        int xToReturn = -1;
+        int yToReturn = -1;
+         
+        if(percent <= moveTL) { //top left
+            xToReturn = x-1;
+            yToReturn = y+1;
+        } else if(percent <= moveTL + moveTM) { //top middle
+            xToReturn = x+0;
+            yToReturn = y+1;
+        } else if(percent <= moveTL + moveTM + moveTR) { //top right
+            xToReturn = x+1;
+            yToReturn = y+1;
+        } else if(percent <= moveTL + moveTM + moveTR + moveML) { //middle left
+            xToReturn = x-1;
+            yToReturn = y+0;
+        }  else if(percent <= moveTL + moveTM + moveTR + moveML + moveMM) { //middle middle
+            xToReturn = x+0;
+            yToReturn = y+0;
+        } else if(percent <= moveTL + moveTM + moveTR + moveML + moveMM + moveMR) { //middle right
+            xToReturn = x+1;
+            yToReturn = y+0;
+        } else if(percent <= moveTL + moveTM + moveTR + moveML + moveMM + moveMR + moveBL) { //bottom left
+            xToReturn = x-1;
+            yToReturn = y-1;
+        } else if(percent <= moveTL + moveTM + moveTR + moveML + moveMM + moveMR + moveBM) { //bottom middle
+            xToReturn = x+0;
+            yToReturn = y-1;
+        } else if(percent <= moveTL + moveTM + moveTR + moveML + moveMM + moveMR + moveBM + moveBR) { //bottom right
+            xToReturn = x+1;
+            yToReturn = y-1;
         }
+        int[] updatedQuards = {xToReturn,yToReturn};
+        return updatedQuards;
     }
+
     //Setter methods
     public void setRow(Toon toonS, int newRow) {
         toonS.row = newRow;
@@ -88,8 +120,12 @@ public class Toon {
         toonS.col = newCol;
     }
     
-    public void setName(Toon toonN) {
+    public void setNameC(Toon toonN) {
         toonN.name = name + "(C)";
+    }
+    
+    public void setNameN(Toon toonN) {
+        toonN.name = toonN.name.substring(0, 1);
     }
     
     //Getter methods
