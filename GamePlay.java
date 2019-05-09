@@ -57,11 +57,13 @@ public class GamePlay {
             boolean match = true;
             int[][] rowCol = new int[6][2];
             
+            //Sleep
             try {
-                Thread.sleep(1000);
+                Thread.sleep(2250);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
+            
             //Bugs moves
             pos = toon.move(bugs, marvin, carrot1, carrot2, mountainTop);
             if (pos[0] > 4) { pos[0] = 4;}
@@ -74,11 +76,10 @@ public class GamePlay {
             System.out.println();
             System.out.println(gameboard.toString());
             System.out.println();
-            if(bugs.getRow() == carrot1.getRow() && bugs.getCol() == carrot1.getCol())
-            {
-                bugs.setNameC();
+            if(bugs.getRow() == carrot1.getRow() && bugs.getCol() == carrot1.getCol()) {
+                toon.setNameC(bugs);
             } else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol()) {
-                bugs.setNameC();
+                toon.setNameC(bugs);
             }
             if(bugs.getName().substring(2,3).equals("C") && bugs.getRow() == mountainTop.getRow() && bugs.getCol() == mountainTop.getCol()) {
                 winnerName = bugs.getName(); break;
@@ -86,7 +87,7 @@ public class GamePlay {
             
             //Sleep
             try {
-                Thread.sleep(1000);
+                Thread.sleep(2250);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -103,11 +104,10 @@ public class GamePlay {
             System.out.println();
             System.out.println(gameboard.toString());
             System.out.println();
-            if(taz.getRow() == carrot1.getRow() && taz.getCol() == carrot1.getCol())
-            {
-                taz.setNameC();
-            } else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol()) {
-                bugs.setNameC();
+            if(taz.getRow() == carrot1.getRow() && taz.getCol() == carrot1.getCol()) {
+                toon.setNameC(taz);
+            } else if(taz.getRow() == carrot2.getRow() && taz.getCol() == carrot2.getCol()) {
+                toon.setNameC(taz);
             }
             if(taz.getName().substring(2,3).equals("C") && taz.getRow() == mountainTop.getRow() && taz.getCol() == mountainTop.getCol()) {
                 winnerName = taz.getName(); break;
@@ -115,7 +115,7 @@ public class GamePlay {
             
             //Sleep
             try {
-                Thread.sleep(1000);
+                Thread.sleep(2250);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -132,11 +132,10 @@ public class GamePlay {
             System.out.println();
             System.out.println(gameboard.toString());
             System.out.println();
-            if(tweety.getRow() == carrot1.getRow() && tweety.getCol() == carrot1.getCol())
-            {
-                tweety.setNameC();
-            } else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol()) {
-                bugs.setNameC();
+            if(tweety.getRow() == carrot1.getRow() && tweety.getCol() == carrot1.getCol()) {
+                toon.setNameC(tweety);
+            } else if(tweety.getRow() == carrot2.getRow() && tweety.getCol() == carrot2.getCol()) {
+                toon.setNameC(tweety);
             }
             if(tweety.getName().substring(2,3).equals("C") && tweety.getRow() == mountainTop.getRow() && tweety.getCol() == mountainTop.getCol()) {
                 winnerName = tweety.getName(); break;
@@ -144,7 +143,7 @@ public class GamePlay {
             
             //Sleep
             try {
-                Thread.sleep(1000);
+                Thread.sleep(2250);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -176,11 +175,10 @@ public class GamePlay {
                 }
             }
             gameboard.updateBoard(marvin);
-            if(marvin.getRow() == carrot1.getRow() && marvin.getCol() == carrot1.getCol())
-            {
-                marvin.setNameC();
-            } else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol()) {
-                bugs.setNameC();
+            if(marvin.getRow() == carrot1.getRow() && marvin.getCol() == carrot1.getCol()) {
+                toon.setNameC(marvin);
+            } else if(marvin.getRow() == carrot2.getRow() && marvin.getCol() == carrot2.getCol()) {
+                toon.setNameC(marvin);
             }
             if(marvin.getName().substring(2,3).equals("C") && marvin.getRow() == mountainTop.getRow() && marvin.getCol() == mountainTop.getCol()) {
                 winnerName = marvin.getName();
@@ -207,6 +205,6 @@ public class GamePlay {
                 }
             }
         }//while loop end
-        System.out.println("Well, there you have it folks " + winnerName + "is the winner!");
+        System.out.println("Well, there you have it folks; " + winnerName + " is the winner!");
     } //run method end
 } //GamePlay class end
