@@ -205,6 +205,6 @@ public class GamePlay {
                 }
             }
         }//while loop end
-        System.out.println("Well, there you have it folks; " + winnerName + " is the winner!");
+        System.out.println("Well, there you have it folks; " + winnerName.substring(0, 1) + " is the winner!");
     } //run method end
 } //GamePlay class end
