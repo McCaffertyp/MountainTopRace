@@ -92,8 +92,32 @@ public class GamePlay {
             gameboard.clearSpace(marvin);
             toon.setPos(marvin, pos[0], pos[1]);
             gameboard.updateBoard(marvin);
-            
+            marvinTurns++;
+            if (marvinTurns % 3 == 0) {
+                while (match) {
+                    rowCol[0][0] = bugs.getRow();
+                    rowCol[0][1] = bugs.getCol();
+                    rowCol[1][0] = taz.getRow();
+                    rowCol[1][1] = taz.getCol();
+                    rowCol[2][0] = tweety.getRow();
+                    rowCol[2][1] = tweety.getCol();
+                    rowCol[3][0] = marvin.getRow();
+                    rowCol[3][1] = marvin.getCol();
+                    rowCol[4][0] = carrot1.getRow();
+                    rowCol[4][1] = carrot1.getCol();
+                    rowCol[5][0] = carrot2.getRow();
+                    rowCol[5][1] = carrot2.getCol();
+                    for (int i = 0; i < 6; i++) {
+                        if (pos[0] == rowCol[i][0] && pos[1] == rowCol[i][1]) {
+                            match = true;
+                        }
+                    }
+                    pos[0] = random.getRandNum(4, 0);
+                    pos[1] = random.getRandNum(4, 0);
+                    mountainTop.mtRespawn(pos[0], pos[1]);
+                    match = false;
+                }
+            }
         }//while loop end
-        
     } //run method end
 } //GamePlay class end
