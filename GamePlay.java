@@ -20,6 +20,7 @@ public class GamePlay {
         String winnerName;
         Board gameboard = new Board();
         int[] pos = new int[2];
+        MRandom random = new MRandom();
          
         //Intro
         System.out.println("One fine day Buggs, Tweety, and Tazz were in a great race!");
@@ -57,7 +58,7 @@ public class GamePlay {
                 Thread.currentThread().interrupt();
             }
             //Bugs moves
-            pos = toon.move(bugs, marvin);
+            pos = toon.move(bugs, marvin, carrot1, carrot2, mountainTop);
             gameboard.clearSpace(bugs);
             toon.setPos(bugs, pos[0], pos[1]);
             gameboard.updateBoard(bugs);
@@ -68,7 +69,7 @@ public class GamePlay {
             }
             
             //Taz moves
-            pos = toon.move(taz, marvin);
+            pos = toon.move(taz, marvin, carrot1, carrot2, mountainTop);
             gameboard.clearSpace(taz);
             toon.setPos(taz, pos[0], pos[1]);
             gameboard.updateBoard(taz);
@@ -79,7 +80,7 @@ public class GamePlay {
             }
             
             //Tweety moves
-            pos = toon.move(tweety, marvin);
+            pos = toon.move(tweety, marvin, carrot1, carrot2, mountainTop);
             gameboard.clearSpace(tweety);
             toon.setPos(tweety, pos[0], pos[1]);
             gameboard.updateBoard(tweety);
@@ -90,7 +91,7 @@ public class GamePlay {
             }
             
             //Marvin moves
-            pos = toon.move(marvin, marvin);
+            pos = toon.move(marvin, marvin, carrot1, carrot2, mountainTop);
             gameboard.clearSpace(marvin);
             toon.setPos(marvin, pos[0], pos[1]);
             rowCol[0][0] = bugs.getRow();
@@ -125,12 +126,11 @@ public class GamePlay {
                     }
                     pos[0] = random.getRandNum(4, 0);
                     pos[1] = random.getRandNum(4, 0);
-                    mountainTop.mtRespawn(pos[0], pos[1]);
+                    mountainTop.mtRespawn(pos);
                     match = false;
                 }
             }
         }//while loop end
     } //run method end
-    
     System.out.println("Well, there you have it folks " + winnerName + "is the winner!");
 } //GamePlay class end
