@@ -60,7 +60,7 @@ public class Board {
         int updateRow = toonMoved.getRow();
         int updateCol = toonMoved.getCol();
         String nameTemp = toonMoved.getName();
-        if (nameTemp.substring(2, 3).equals("C") {
+        if (nameTemp.substring(2, 3).equals("C")) {
             board[updateRow][updateCol] = "   " + nameTemp;
         } else {
             board[updateRow][updateCol] = "     " + nameTemp;
