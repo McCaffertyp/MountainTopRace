@@ -52,7 +52,7 @@ public class Toon {
         //This is where the movement manipulation should take place
         //Use the other method, movementMod, for this section
          
-        if(!(genericToon.getName().substring(2,3).equals("c")) && !(genericToon.getName().equals("Marvin"))) { //is not marven and does not have flag
+        if(!(genericToon.getName().substring(2,3).equals("C")) && !(genericToon.getName().equals("Marvin"))) { //is not marven and does not have flag
         
         //Chase after the flag
             if(( Math.abs(cOne.getRow()) - Math.abs(genericToon.getRow()) ) + ( Math.abs(cOne.getCol()) - Math.abs(genericToon.getCol()) ) > ( Math.abs(cTwo.getRow()) - Math.abs(genericToon.getRow()) )
@@ -308,7 +308,7 @@ public class Toon {
                moveBR -= 4; 
             
             }
-         } else if(genericToon.getName().substring(2,3).equals("c") && !(genericToon.getName().equals("Marvin"))) { //is not marven and does have flag
+         } else if(genericToon.getName().substring(2,3).equals("C") && !(genericToon.getName().equals("Marvin"))) { //is not marven and does have flag
          
             //This is to calculate where marvin is around the player
             if(genericToon.getRow() > toonMar.getRow() && genericToon.getCol() < toonMar.getCol() ) { //1 Marvin is in the bottom right corrner
@@ -483,7 +483,7 @@ public class Toon {
                   
          
          } 
-         else if(!(toonMar.getName().substring(2,3).equals("c")) && genericToon.getName().equals("Marvin")) 
+         else if(!(toonMar.getName().substring(2,3).equals("C")) && genericToon.getName().equals("Marvin")) 
          { // is marven and does not have flag
          
             //Chase after the flag
@@ -661,7 +661,7 @@ public class Toon {
             
          
          }
-         else if(toonMar.getName().substring(2,3).equals("c") && genericToon.getName().equals("Marvin")) { // is marven and does have flag
+         else if(toonMar.getName().substring(2,3).equals("C") && genericToon.getName().equals("Marvin")) { // is marven and does have flag
          
                   //This is to calculate the character going to the mountain
                   if(genericToon.getRow() > mound.getRow() && genericToon.getCol() < mound.getCol() ) { //1 in the bottom right corrner
