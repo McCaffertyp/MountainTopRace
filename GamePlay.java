@@ -74,6 +74,14 @@ public class GamePlay {
             System.out.println();
             System.out.println(gameboard.toString());
             System.out.println();
+            if(bugs.getRow() == carrot1.getRow() && bugs.getCol() == carrot1.getCol())
+            {
+                bugs.setNameC();
+            }
+        else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol())
+        {
+            bugs.setNameC();
+        }
             if(bugs.getName().substring(2,3).equals("C") && bugs.getRow() == mountainTop.getRow() && bugs.getCol() == mountainTop.getCol()) {
                 winnerName = bugs.getName(); break;
             }
@@ -97,6 +105,14 @@ public class GamePlay {
             System.out.println();
             System.out.println(gameboard.toString());
             System.out.println();
+            if(taz.getRow() == carrot1.getRow() && taz.getCol() == carrot1.getCol())
+            {
+                taz.setNameC();
+            }
+        else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol())
+        {
+            bugs.setNameC();
+        }
             if(taz.getName().substring(2,3).equals("C") && taz.getRow() == mountainTop.getRow() && taz.getCol() == mountainTop.getCol()) {
                 winnerName = taz.getName(); break;
             }
@@ -120,6 +136,14 @@ public class GamePlay {
             System.out.println();
             System.out.println(gameboard.toString());
             System.out.println();
+            if(tweety.getRow() == carrot1.getRow() && tweety.getCol() == carrot1.getCol())
+            {
+                tweety.setNameC();
+            }
+        else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol())
+        {
+            bugs.setNameC();
+        }
             if(tweety.getName().substring(2,3).equals("C") && tweety.getRow() == mountainTop.getRow() && tweety.getCol() == mountainTop.getCol()) {
                 winnerName = tweety.getName(); break;
             }
@@ -158,6 +182,14 @@ public class GamePlay {
                 }
             }
             gameboard.updateBoard(marvin);
+            if(marvin.getRow() == carrot1.getRow() && marvin.getCol() == carrot1.getCol())
+            {
+                marvin.setNameC();
+            }
+        else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol())
+        {
+            bugs.setNameC();
+        }
             if(marvin.getName().substring(2,3).equals("C") && marvin.getRow() == mountainTop.getRow() && marvin.getCol() == mountainTop.getCol()) {
                 winnerName = marvin.getName();
                 break;
