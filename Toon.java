@@ -21,7 +21,7 @@ public class Toon {
     //Toon movement method. Also takes into weighted movement decision based on walls,
     //mountainTop, carrots, and Marvin.
     public int[] move(Toon genericToon, Toon toonMar, Carrot cOne, Carrot cTwo, MountainTop mound) {
-        //Get Marvin's exact location
+        //Get Marvin's location
         int rowM = toonMar.getRow();
         int colM = toonMar.getCol();
         
@@ -794,11 +794,8 @@ public class Toon {
     }
     
     //Setter methods
-    public void setRow(Toon toonS, int newRow) {
+    public void setPos(Toon toonS, int newRow, int newCol) {
         toonS.row = newRow;
-    }
-    
-    public void setCol(Toon toonS, int newCol) {
         toonS.col = newCol;
     }
     
