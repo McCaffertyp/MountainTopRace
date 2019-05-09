@@ -131,4 +131,6 @@ public class GamePlay {
             }
         }//while loop end
     } //run method end
+    
+    System.out.println("Well, there you have it folks " + winnerName + "is the winner!");
 } //GamePlay class end
