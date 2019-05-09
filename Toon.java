@@ -7,9 +7,7 @@ import java.util.*;
 public class Toon {
     int row, col;
     String name;
-    int num, r, c;
     MRandom random = new MRandom();
-    boolean moved = false;
     
     public Toon() {
     }
@@ -24,7 +22,6 @@ public class Toon {
     //mountainTop, carrots, and Marvin.
     public int[] move(int x, int y, Toon genericToon) {
         //get a number between 1 and 90
-        MRandom random = new MRandom();
         int percent = random.getRandNum(90, 1);
          
         //Each of these ints changes the chance a character will move to that spot!
