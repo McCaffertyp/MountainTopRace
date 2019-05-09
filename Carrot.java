@@ -4,24 +4,25 @@ import java.util.*;
     Jack Van Well
     Paul McCafferty
 */
-public class MountainTop {
-    private int row, col;
-      
-    public MountainTop() {
+public class Carrot {
+    int row, col;
+    boolean owned = false;
+    String ownerName;
+        
+    Carrot() {
     }
-     
-    public MountainTop(int assignRow, int assignCol) {
+        
+    Carrot(int assignRow, int assignCol) {
         row = assignRow;
         col = assignCol;
     }
-      
+    
     //Setter method
-    public void setMountTopPos(int newRow, int newCol) {
-        row = newRow;
-        col = newCol;
+    public void setOwnership(Toon toonTemp) {
+        ownerName = toonTemp.getName();
+        this.owned = true;
     }
         
-       
     //Getter methods
     public int getRow() {
         return row;
@@ -30,4 +31,4 @@ public class MountainTop {
     public int getCol() {
         return col;
     }
-} //MountainTop class end
+} //Carrot class end
