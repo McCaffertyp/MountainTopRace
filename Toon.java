@@ -20,8 +20,12 @@ public class Toon {
     
     //Toon movement method. Also takes into weighted movement decision based on walls,
     //mountainTop, carrots, and Marvin.
-    public int[] move(int x, int y, Toon genericToon) {
-        //get a number between 1 and 90
+    public int[] move(int x, int y, Toon genericToon, Toon toonMar) {
+        //Get Marvin's exact location
+        int rowM = toonMar.getRow();
+        int colM = toonMar.getCol();
+        
+        //Get a number between 1 and 90
         int percent = random.getRandNum(90, 1);
          
         //Each of these ints changes the chance a character will move to that spot!
