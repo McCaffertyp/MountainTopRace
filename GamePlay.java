@@ -58,6 +58,7 @@ public class GamePlay {
             int[][] rowCol = new int[6][2];
             
             //Sleep
+            System.out.println("Bugs turn:");
             try {
                 Thread.sleep(2250);
             } catch (InterruptedException e) {
@@ -70,22 +71,32 @@ public class GamePlay {
             if (pos[0] < 0) { pos[0] = 0;}
             if (pos[1] > 4) { pos[1] = 4;}
             if (pos[1] < 0) { pos[1] = 0;}
+            //Checking mountain position and making sure they don't finish without carrot
+            if ((!(bugs.getName().substring(2, 3).equals("C"))) && pos[0] == mountainTop.getRow() && pos[1] == mountainTop.getCol()) {
+                pos = mountainTop.nextPos(pos, bugs);
+            }
             gameboard.clearSpace(bugs);
             toon.setPos(bugs, pos[0], pos[1]);
+            //Checking if they land on a carrot
+            if(bugs.getRow() == carrot1.getRow() && bugs.getCol() == carrot1.getCol()) {
+                toon.setNameC(bugs);
+                carrot1.changeCPos(bugs, carrot1);
+            } else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol()) {
+                toon.setNameC(bugs);
+                carrot2.changeCPos(bugs, carrot2);
+            }
+            //Winner check
+            if(bugs.getName().substring(2,3).equals("C") && bugs.getRow() == mountainTop.getRow() && bugs.getCol() == mountainTop.getCol()) {
+                winnerName = bugs.getName(); break;
+            }
+            //Board and character updates
             gameboard.updateBoard(bugs);
             System.out.println();
             System.out.println(gameboard.toString());
             System.out.println();
-            if(bugs.getRow() == carrot1.getRow() && bugs.getCol() == carrot1.getCol()) {
-                toon.setNameC(bugs);
-            } else if(bugs.getRow() == carrot2.getRow() && bugs.getCol() == carrot2.getCol()) {
-                toon.setNameC(bugs);
-            }
-            if(bugs.getName().substring(2,3).equals("C") && bugs.getRow() == mountainTop.getRow() && bugs.getCol() == mountainTop.getCol()) {
-                winnerName = bugs.getName(); break;
-            }
             
             //Sleep
+            System.out.println("Taz's turn:");
             try {
                 Thread.sleep(2250);
             } catch (InterruptedException e) {
@@ -98,22 +109,32 @@ public class GamePlay {
             if (pos[0] < 0) { pos[0] = 0;}
             if (pos[1] > 4) { pos[1] = 4;}
             if (pos[1] < 0) { pos[1] = 0;}
+            //Checking mountain position and making sure they don't finish without carrot
+            if ((!(taz.getName().substring(2, 3).equals("C"))) && pos[0] == mountainTop.getRow() && pos[1] == mountainTop.getCol()) {
+                pos = mountainTop.nextPos(pos, taz);
+            }
             gameboard.clearSpace(taz);
             toon.setPos(taz, pos[0], pos[1]);
+            //Checking if they land on a carrot
+            if(taz.getRow() == carrot1.getRow() && taz.getCol() == carrot1.getCol()) {
+                toon.setNameC(taz);
+                carrot1.changeCPos(taz, carrot1);
+            } else if(taz.getRow() == carrot2.getRow() && taz.getCol() == carrot2.getCol()) {
+                toon.setNameC(taz);
+                carrot2.changeCPos(taz, carrot2);
+            }
+            //Winner check
+            if(taz.getName().substring(2,3).equals("C") && taz.getRow() == mountainTop.getRow() && taz.getCol() == mountainTop.getCol()) {
+                winnerName = taz.getName(); break;
+            }
+            //Board and character updates
             gameboard.updateBoard(taz);
             System.out.println();
             System.out.println(gameboard.toString());
             System.out.println();
-            if(taz.getRow() == carrot1.getRow() && taz.getCol() == carrot1.getCol()) {
-                toon.setNameC(taz);
-            } else if(taz.getRow() == carrot2.getRow() && taz.getCol() == carrot2.getCol()) {
-                toon.setNameC(taz);
-            }
-            if(taz.getName().substring(2,3).equals("C") && taz.getRow() == mountainTop.getRow() && taz.getCol() == mountainTop.getCol()) {
-                winnerName = taz.getName(); break;
-            }
             
             //Sleep
+            System.out.println("Tweety's turn:");
             try {
                 Thread.sleep(2250);
             } catch (InterruptedException e) {
@@ -126,22 +147,32 @@ public class GamePlay {
             if (pos[0] < 0) { pos[0] = 0;}
             if (pos[1] > 4) { pos[1] = 4;}
             if (pos[1] < 0) { pos[1] = 0;}
+            //Checking mountain position and making sure they don't finish without carrot
+            if ((!(tweety.getName().substring(2, 3).equals("C"))) && pos[0] == mountainTop.getRow() && pos[1] == mountainTop.getCol()) {
+                pos = mountainTop.nextPos(pos, tweety);
+            }
             gameboard.clearSpace(tweety);
             toon.setPos(tweety, pos[0], pos[1]);
+            //Checking if they land on a carrot
+            if(tweety.getRow() == carrot1.getRow() && tweety.getCol() == carrot1.getCol()) {
+                toon.setNameC(tweety);
+                carrot1.changeCPos(tweety, carrot1);
+            } else if(tweety.getRow() == carrot2.getRow() && tweety.getCol() == carrot2.getCol()) {
+                toon.setNameC(tweety);
+                carrot2.changeCPos(tweety, carrot2);
+            }
+            //Winner check
+            if(tweety.getName().substring(2,3).equals("C") && tweety.getRow() == mountainTop.getRow() && tweety.getCol() == mountainTop.getCol()) {
+                winnerName = tweety.getName(); break;
+            }
+            //Board and character updates
             gameboard.updateBoard(tweety);
             System.out.println();
             System.out.println(gameboard.toString());
             System.out.println();
-            if(tweety.getRow() == carrot1.getRow() && tweety.getCol() == carrot1.getCol()) {
-                toon.setNameC(tweety);
-            } else if(tweety.getRow() == carrot2.getRow() && tweety.getCol() == carrot2.getCol()) {
-                toon.setNameC(tweety);
-            }
-            if(tweety.getName().substring(2,3).equals("C") && tweety.getRow() == mountainTop.getRow() && tweety.getCol() == mountainTop.getCol()) {
-                winnerName = tweety.getName(); break;
-            }
             
             //Sleep
+            System.out.println("Marvin's turn:");
             try {
                 Thread.sleep(2250);
             } catch (InterruptedException e) {
@@ -154,11 +185,13 @@ public class GamePlay {
             if (pos[0] < 0) { pos[0] = 0;}
             if (pos[1] > 4) { pos[1] = 4;}
             if (pos[1] < 0) { pos[1] = 0;}
+            //Checking mountain position and making sure they don't finish without carrot
+            if ((!(marvin.getName().substring(2, 3).equals("C"))) && pos[0] == mountainTop.getRow() && pos[1] == mountainTop.getCol()) {
+                pos = mountainTop.nextPos(pos, marvin);
+            }
             gameboard.clearSpace(marvin);
-            System.out.println();
-            System.out.println(gameboard.toString());
-            System.out.println();
             toon.setPos(marvin, pos[0], pos[1]);
+            //Checking if marvin lands on another space as another character
             rowCol[0][0] = bugs.getRow();
             rowCol[0][1] = bugs.getCol();
             rowCol[1][0] = taz.getRow();
@@ -174,18 +207,22 @@ public class GamePlay {
                     }
                 }
             }
-            gameboard.updateBoard(marvin);
+            //Checking if they land on a carrot
             if(marvin.getRow() == carrot1.getRow() && marvin.getCol() == carrot1.getCol()) {
                 toon.setNameC(marvin);
+                carrot1.changeCPos(marvin, carrot1);
             } else if(marvin.getRow() == carrot2.getRow() && marvin.getCol() == carrot2.getCol()) {
                 toon.setNameC(marvin);
+                carrot2.changeCPos(marvin, carrot2);
             }
+            //Winner check
             if(marvin.getName().substring(2,3).equals("C") && marvin.getRow() == mountainTop.getRow() && marvin.getCol() == mountainTop.getCol()) {
                 winnerName = marvin.getName();
                 break;
             }
             marvinTurns++;
-            if (marvinTurns % 3 == 0) {
+            if (marvinTurns % 3 == 0) { //Mountain respawn by marvins gadget
+                gameboard.clearSpaceMT(mountainTop);
                 rowCol[3][0] = marvin.getRow();
                 rowCol[3][1] = marvin.getCol();
                 rowCol[4][0] = carrot1.getRow();
@@ -201,9 +238,15 @@ public class GamePlay {
                     pos[0] = random.getRandNum(4, 0);
                     pos[1] = random.getRandNum(4, 0);
                     mountainTop.mtRespawn(pos);
+                    gameboard.mountainMove(mountainTop);
                     match = false;
                 }
             }
+            //Board and character updates
+            gameboard.updateBoard(marvin);
+            System.out.println();
+            System.out.println(gameboard.toString());
+            System.out.println();
         }//while loop end
         System.out.println("Well, there you have it folks; " + winnerName.substring(0, 1) + " is the winner!");
     } //run method end
