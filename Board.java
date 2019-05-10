@@ -29,9 +29,11 @@ public class Board {
     
     //This method clears a space that was taken
     public void clearSpace(Toon toonToMove) {
-        int curRow = toonToMove.getRow();
-        int curCol = toonToMove.getCol();
-        board[curRow][curCol] = "  -   ";
+        board[toonToMove.getRow()][toonToMove.getCol()] = "  -   ";
+    }
+    
+    public void clearSpaceMT(MountainTop mt) {
+        board[mt.getRow()][mt.getCol()] = "  -   ";
     }
     
     //This method updates the movement of a toon
@@ -40,6 +42,13 @@ public class Board {
         int updateCol = toonMoved.getCol();
         String nameTemp = toonMoved.getName();
         board[updateRow][updateCol] = "  " + nameTemp;
+    }
+    
+    //Mountain moves
+    public void mountainMove(MountainTop mt) {
+        int updateRow = mt.getRow();
+        int updateCol = mt.getCol();
+        board[updateRow][updateCol] = "  F   ";
     }
     
     @Override
