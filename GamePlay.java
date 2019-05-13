@@ -284,7 +284,8 @@ public class GamePlay {
             rowCol[2][0] = tweety.getRow();
             rowCol[2][1] = tweety.getCol();
             for (int i = 0; i < 3; i++) {
-                if (!(marvin.getName().substring(2,3).equals("C")) && marvin.getRow() == rowCol[i][0] && marvin.getCol() == rowCol[i][1]) {
+                //Marvin's carrot stealing abilities
+                if (marvin.getName().substring(2,3).equals("C") && marvin.getRow() == rowCol[i][0] && marvin.getCol() == rowCol[i][1]) {
                     switch (i) {
                         case 0: if (bugs.getName().substring(2, 3).equals("C")) {
                                     toon.setNameN(bugs);
@@ -326,7 +327,7 @@ public class GamePlay {
                                 toon.respawn(tweety); 
                                 gameboard.updateBoard(tweety); break;
                     }
-                } else if (marvin.getName().substring(2,3).equals("C") && marvin.getRow() == rowCol[i][0] && marvin.getCol() == rowCol[i][1]) {
+                } else if (!(marvin.getName().substring(2,3).equals("C")) && marvin.getRow() == rowCol[i][0] && marvin.getCol() == rowCol[i][1]) {
                     switch (i) {
                         case 0: if (bugs.getName().substring(2, 3).equals("C")) {
                                     toon.setNameN(bugs);
