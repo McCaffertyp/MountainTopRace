@@ -29,8 +29,8 @@ public class Toon {
         int x = genericToon.getRow();
         int y = genericToon.getCol();
         
-        //Get a number between 1 and 90
-        int percent = random.getRandNum(90, 1);
+        //Get a number from 1 <= x <= 80
+        int percent = random.getRandNum(80, 1);
          
         //Each of these ints changes the chance a character will move to that spot!
         //Cheat sheet integer name
@@ -43,7 +43,6 @@ public class Toon {
         int moveTM = 10;
         int moveTR = 10;
         int moveML = 10;
-        int moveMM = 10;
         int moveMR = 10;
         int moveBL = 10;
         int moveBM = 10;
@@ -52,15 +51,12 @@ public class Toon {
         //This is where the movement manipulation should take place
         //Use the other method, movementMod, for this section
          
-        if(!(genericToon.getName().substring(2,3).equals("C")) && !(genericToon.getName().equals("Marvin"))) { //is not marven and does not have flag
+        if(!(genericToon.getName().substring(2,3).equals("C")) && !(genericToon.getName().substring(0,1).equals("M"))) { //is not marven and does not have flag
         
         //Chase after the flag
-            if(( Math.abs(cOne.getRow()) - Math.abs(genericToon.getRow()) ) + ( Math.abs(cOne.getCol()) - Math.abs(genericToon.getCol()) ) > ( Math.abs(cTwo.getRow()) - Math.abs(genericToon.getRow()) )
-                      + (Math.abs(cTwo.getCol()) - Math.abs(genericToon.getCol()) ))//carrot one is closer
-                      
-            {
-            
-                     //This is to calculate the character chasing the carrot
+            if(Math.abs((genericToon.getRow() + genericToon.getCol()) - (cTwo.getRow() + cTwo.getCol())) > Math.abs((genericToon.getRow() +
+                      genericToon.getCol()) - (cTwo.getRow() + cTwo.getCol()))) {//carrot one is closer
+                   //This is to calculate the character chasing the carrot
                   if(genericToon.getRow() > cOne.getRow() && genericToon.getCol() < cOne.getCol() ) { //1 in the bottom right corrner
                      //Sub 6 from
                      moveTL -= 6;
@@ -142,7 +138,8 @@ public class Toon {
                   
                   }
             }
-            else//carrot two is closer
+            else if (Math.abs((genericToon.getRow() + genericToon.getCol()) - (cTwo.getRow() + cTwo.getCol())) < Math.abs((genericToon.getRow() +
+                      genericToon.getCol()) - (cTwo.getRow() + cTwo.getCol())))//carrot two is closer
             {
                   //This is to calculate the character chasing the carrot
                   if(genericToon.getRow() > cTwo.getRow() && genericToon.getCol() < cTwo.getCol() ) { //1 in the bottom right corrner
@@ -308,7 +305,7 @@ public class Toon {
                moveBR -= 4; 
             
             }
-         } else if(genericToon.getName().substring(2,3).equals("C") && !(genericToon.getName().equals("Marvin"))) { //is not marven and does have flag
+         } else if(genericToon.getName().substring(2,3).equals("C") && !(genericToon.getName().substring(0,1).equals("M"))) { //is not marven and does have flag
          
             //This is to calculate where marvin is around the player
             if(genericToon.getRow() > toonMar.getRow() && genericToon.getCol() < toonMar.getCol() ) { //1 Marvin is in the bottom right corrner
@@ -483,7 +480,7 @@ public class Toon {
                   
          
          } 
-         else if(!(toonMar.getName().substring(2,3).equals("C")) && genericToon.getName().equals("Marvin")) 
+         else if(!(toonMar.getName().substring(2,3).equals("C")) && genericToon.getName().substring(0,1).equals("M")) 
          { // is marven and does not have flag
          
             //Chase after the flag
@@ -661,7 +658,7 @@ public class Toon {
             
          
          }
-         else if(toonMar.getName().substring(2,3).equals("C") && genericToon.getName().equals("Marvin")) { // is marven and does have flag
+         else if(toonMar.getName().substring(2,3).equals("C") && genericToon.getName().substring(0,1).equals("M")) { // is marven and does have flag
          
                   //This is to calculate the character going to the mountain
                   if(genericToon.getRow() > mound.getRow() && genericToon.getCol() < mound.getCol() ) { //1 in the bottom right corrner
@@ -764,19 +761,16 @@ public class Toon {
         } else if(percent <= moveTL + moveTM + moveTR + moveML) { //middle left
             xToReturn = x-1;
             yToReturn = y+0;
-        }  else if(percent <= moveTL + moveTM + moveTR + moveML + moveMM) { //middle middle
-            xToReturn = x+0;
-            yToReturn = y+0;
-        } else if(percent <= moveTL + moveTM + moveTR + moveML + moveMM + moveMR) { //middle right
+        } else if(percent <= moveTL + moveTM + moveTR + moveML + moveMR) { //middle right
             xToReturn = x+1;
             yToReturn = y+0;
-        } else if(percent <= moveTL + moveTM + moveTR + moveML + moveMM + moveMR + moveBL) { //bottom left
+        } else if(percent <= moveTL + moveTM + moveTR + moveML + moveMR + moveBL) { //bottom left
             xToReturn = x-1;
             yToReturn = y-1;
-        } else if(percent <= moveTL + moveTM + moveTR + moveML + moveMM + moveMR + moveBM) { //bottom middle
+        } else if(percent <= moveTL + moveTM + moveTR + moveML + moveMR + moveBL + moveBM) { //bottom middle
             xToReturn = x+0;
             yToReturn = y-1;
-        } else if(percent <= moveTL + moveTM + moveTR + moveML + moveMM + moveMR + moveBM + moveBR) { //bottom right
+        } else if(percent <= moveTL + moveTM + moveTR + moveML + moveMR + moveBL + moveBM + moveBR) { //bottom right
             xToReturn = x+1;
             yToReturn = y-1;
         }
@@ -784,6 +778,7 @@ public class Toon {
         return updatedQuards;
     }
     
+    //Respawns toon back to initial position
     public void respawn(Toon respToon) {
         String name = respToon.getName().substring(0, 1);
         switch(name) {
@@ -805,6 +800,10 @@ public class Toon {
     
     public void setNameN(Toon toonN) {
         toonN.name = toonN.name.substring(0, 1) + "   ";
+    }
+    
+    public void setNameF(Toon toonN) {
+        toonN.name = "F|" + toonN.name.substring(0,1) + "(C)";
     }
     
     //Getter methods
