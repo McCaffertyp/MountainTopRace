@@ -54,7 +54,7 @@ public class Board {
         int finCol = toonWon.getCol();
         String finName = toonWon.getName();
         board[finRow][finCol] = "  " + finName;
-        board[finRow+1][finCol] = board[finRow+1][finCol].substring(2,5);
+        board[finRow][finCol+1] = board[finRow][finCol+1].substring(2,5);
     }
     
     //Mountain moves
