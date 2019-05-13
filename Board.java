@@ -36,12 +36,25 @@ public class Board {
         board[mt.getRow()][mt.getCol()] = "  -   ";
     }
     
+    public void respawnCarrot(Carrot carrot) {
+       board[carrot.getRow()][carrot.getCol()] = "  C   ";
+    }
+    
     //This method updates the movement of a toon
     public void updateBoard(Toon toonMoved) {
         int updateRow = toonMoved.getRow();
         int updateCol = toonMoved.getCol();
         String nameTemp = toonMoved.getName();
         board[updateRow][updateCol] = "  " + nameTemp;
+    }
+    
+    //Adjusts board for winner name
+    public void finishBoard(Toon toonWon) {
+        int finRow = toonWon.getRow();
+        int finCol = toonWon.getCol();
+        String finName = toonWon.getName();
+        board[finRow][finCol] = "  " + finName;
+        board[finRow+1][finCol] = board[finRow+1][finCol].substring(2,5);
     }
     
     //Mountain moves
