@@ -284,7 +284,7 @@ public class GamePlay {
             rowCol[2][0] = tweety.getRow();
             rowCol[2][1] = tweety.getCol();
             for (int i = 0; i < 3; i++) {
-                if (marvin.getRow() == rowCol[i][0] && marvin.getCol() == rowCol[i][1]) {
+                if (!(marvin.getName().substring(2,3).equals("C")) && marvin.getRow() == rowCol[i][0] && marvin.getCol() == rowCol[i][1]) {
                     switch (i) {
                         case 0: if (bugs.getName().substring(2, 3).equals("C")) {
                                     toon.setNameN(bugs);
@@ -321,6 +321,42 @@ public class GamePlay {
                                     } else {
                                         carrot2.changeCPos(marvin, carrot2);
                                         carrot2.respawn(gameboard, carrot2);
+                                    }
+                                }
+                                toon.respawn(tweety); 
+                                gameboard.updateBoard(tweety); break;
+                    }
+                } else if (marvin.getName().substring(2,3).equals("C") && marvin.getRow() == rowCol[i][0] && marvin.getCol() == rowCol[i][1]) {
+                    switch (i) {
+                        case 0: if (bugs.getName().substring(2, 3).equals("C")) {
+                                    toon.setNameN(bugs);
+                                    toon.setNameC(marvin);
+                                    if (carrot1.getOwner().equals("B")) {
+                                        carrot1.changeCPos(marvin, carrot1);
+                                    } else {
+                                        carrot2.changeCPos(marvin, carrot2);
+                                    }
+                                }
+                                toon.respawn(bugs);
+                                gameboard.updateBoard(bugs); break;
+                        case 1: if (taz.getName().substring(2, 3).equals("C")) {
+                                    toon.setNameN(taz);
+                                    toon.setNameC(marvin);
+                                    if (carrot1.getOwner().equals("D")) {
+                                        carrot1.changeCPos(marvin, carrot1);
+                                    } else {
+                                        carrot2.changeCPos(marvin, carrot2);
+                                    }
+                                }
+                                toon.respawn(taz); 
+                                gameboard.updateBoard(taz); break;
+                        case 2: if (tweety.getName().substring(2, 3).equals("C")) {
+                                    toon.setNameN(tweety);
+                                    toon.setNameC(marvin);
+                                    if (carrot1.getOwner().equals("T")) {
+                                        carrot1.changeCPos(marvin, carrot1);
+                                    } else {
+                                        carrot2.changeCPos(marvin, carrot2);
                                     }
                                 }
                                 toon.respawn(tweety); 
