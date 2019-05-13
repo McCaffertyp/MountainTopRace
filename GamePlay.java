@@ -117,6 +117,11 @@ public class GamePlay {
             } else if (carrot2.getOwner().equals("B")) {
                 carrot2.changeCPos(bugs, carrot2);
             }
+            //Toon is dead
+            if (bugs.alive == false) {
+                toon.setPos(bugs, marvin.getRow(), marvin.getCol());
+                toon.setNameD(bugs, marvin);
+            }
             gameboard.updateBoard(bugs);
             System.out.println();
             System.out.println(gameboard.toString());
@@ -181,6 +186,11 @@ public class GamePlay {
                 carrot1.changeCPos(taz, carrot1);
             } else if (carrot2.getOwner().equals("D")) {
                 carrot2.changeCPos(taz, carrot2);
+            }
+            //Toon is dead
+            if (taz.alive == false) {
+                toon.setPos(taz, marvin.getRow(), marvin.getCol());
+                toon.setNameD(taz, marvin);
             }
             gameboard.updateBoard(taz);
             System.out.println();
@@ -247,6 +257,11 @@ public class GamePlay {
             } else if (carrot2.getOwner().equals("T")) {
                 carrot2.changeCPos(tweety, carrot2);
             }
+            //Toon is dead
+            if (tweety.alive == false) {
+                toon.setPos(tweety, marvin.getRow(), marvin.getCol());
+                toon.setNameD(tweety, marvin);
+            }
             gameboard.updateBoard(tweety);
             System.out.println();
             System.out.println(gameboard.toString());
@@ -284,7 +299,6 @@ public class GamePlay {
             rowCol[2][0] = tweety.getRow();
             rowCol[2][1] = tweety.getCol();
             for (int i = 0; i < 3; i++) {
-                //Marvin's carrot stealing abilities
                 if (marvin.getName().substring(2,3).equals("C") && marvin.getRow() == rowCol[i][0] && marvin.getCol() == rowCol[i][1]) {
                     switch (i) {
                         case 0: if (bugs.getName().substring(2, 3).equals("C")) {
@@ -298,7 +312,7 @@ public class GamePlay {
                                         carrot2.respawn(gameboard, carrot2);
                                     }
                                 }
-                                toon.respawn(bugs);
+                                toon.notAlive(bugs);
                                 gameboard.updateBoard(bugs); break;
                         case 1: if (taz.getName().substring(2, 3).equals("C")) {
                                     toon.setNameN(taz);
@@ -311,7 +325,7 @@ public class GamePlay {
                                         carrot2.respawn(gameboard, carrot2);
                                     }
                                 }
-                                toon.respawn(taz); 
+                                toon.notAlive(taz); 
                                 gameboard.updateBoard(taz); break;
                         case 2: if (tweety.getName().substring(2, 3).equals("C")) {
                                     toon.setNameN(tweety);
@@ -324,7 +338,7 @@ public class GamePlay {
                                         carrot2.respawn(gameboard, carrot2);
                                     }
                                 }
-                                toon.respawn(tweety); 
+                                toon.notAlive(tweety); 
                                 gameboard.updateBoard(tweety); break;
                     }
                 } else if (!(marvin.getName().substring(2,3).equals("C")) && marvin.getRow() == rowCol[i][0] && marvin.getCol() == rowCol[i][1]) {
@@ -338,7 +352,7 @@ public class GamePlay {
                                         carrot2.changeCPos(marvin, carrot2);
                                     }
                                 }
-                                toon.respawn(bugs);
+                                toon.notAlive(bugs);
                                 gameboard.updateBoard(bugs); break;
                         case 1: if (taz.getName().substring(2, 3).equals("C")) {
                                     toon.setNameN(taz);
@@ -349,7 +363,7 @@ public class GamePlay {
                                         carrot2.changeCPos(marvin, carrot2);
                                     }
                                 }
-                                toon.respawn(taz); 
+                                toon.notAlive(taz); 
                                 gameboard.updateBoard(taz); break;
                         case 2: if (tweety.getName().substring(2, 3).equals("C")) {
                                     toon.setNameN(tweety);
@@ -360,7 +374,7 @@ public class GamePlay {
                                         carrot2.changeCPos(marvin, carrot2);
                                     }
                                 }
-                                toon.respawn(tweety); 
+                                toon.notAlive(tweety); 
                                 gameboard.updateBoard(tweety); break;
                     }
                 }
