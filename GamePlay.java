@@ -140,7 +140,7 @@ public class GamePlay {
             if (!taz.getName().substring(2,3).equals("C")) {
                 while (pos[0] == bugs.getRow() && pos[1] == bugs.getCol() || pos[0] == tweety.getRow() && pos[1] == tweety.getCol() 
                        || pos[0] == marvin.getRow() && pos[1] == marvin.getCol() || pos[0] == mountainTop.getRow() && pos[1] == mountainTop.getCol()) {
-                    pos = toon.move(bugs, marvin, carrot1, carrot2, mountainTop);
+                    pos = toon.move(taz, marvin, carrot1, carrot2, mountainTop);
                     if (pos[0] > 4) { pos[0] = 4;}
                     if (pos[0] < 0) { pos[0] = 0;}
                     if (pos[1] > 4) { pos[1] = 4;}
@@ -149,7 +149,7 @@ public class GamePlay {
             } else {
                 while (pos[0] == bugs.getRow() && pos[1] == bugs.getCol() || pos[0] == tweety.getRow() && pos[1] == tweety.getCol() 
                        || pos[0] == marvin.getRow() && pos[1] == marvin.getCol()) {
-                    pos = toon.move(bugs, marvin, carrot1, carrot2, mountainTop);
+                    pos = toon.move(taz, marvin, carrot1, carrot2, mountainTop);
                     if (pos[0] > 4) { pos[0] = 4;}
                     if (pos[0] < 0) { pos[0] = 0;}
                     if (pos[1] > 4) { pos[1] = 4;}
@@ -205,7 +205,7 @@ public class GamePlay {
             if (!tweety.getName().substring(2,3).equals("C")) {
                 while (pos[0] == bugs.getRow() && pos[1] == bugs.getCol() || pos[0] == taz.getRow() && pos[1] == taz.getCol() 
                        || pos[0] == marvin.getRow() && pos[1] == marvin.getCol() || pos[0] == mountainTop.getRow() && pos[1] == mountainTop.getCol()) {
-                    pos = toon.move(bugs, marvin, carrot1, carrot2, mountainTop);
+                    pos = toon.move(tweety, marvin, carrot1, carrot2, mountainTop);
                     if (pos[0] > 4) { pos[0] = 4;}
                     if (pos[0] < 0) { pos[0] = 0;}
                     if (pos[1] > 4) { pos[1] = 4;}
@@ -214,7 +214,7 @@ public class GamePlay {
             } else {
                 while (pos[0] == bugs.getRow() && pos[1] == bugs.getCol() || pos[0] == taz.getRow() && pos[1] == taz.getCol() 
                        || pos[0] == marvin.getRow() && pos[1] == marvin.getCol()) {
-                    pos = toon.move(bugs, marvin, carrot1, carrot2, mountainTop);
+                    pos = toon.move(tweety, marvin, carrot1, carrot2, mountainTop);
                     if (pos[0] > 4) { pos[0] = 4;}
                     if (pos[0] < 0) { pos[0] = 0;}
                     if (pos[1] > 4) { pos[1] = 4;}
