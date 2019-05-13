@@ -8,6 +8,7 @@ public class Toon {
     int row, col;
     String name = "";
     MRandom random = new MRandom();
+    boolean alive;
     
     public Toon() {
     }
@@ -16,6 +17,7 @@ public class Toon {
         name += assignName;
         row = assignRow;
         col = assignCol;
+        alive = true;
     }
     
     //Toon movement method. Also takes into weighted movement decision based on walls,
@@ -778,14 +780,9 @@ public class Toon {
         return updatedQuards;
     }
     
-    //Respawns toon back to initial position
-    public void respawn(Toon respToon) {
-        String name = respToon.getName().substring(0, 1);
-        switch(name) {
-            case "B": respToon.setPos(respToon, 4, 1); break;
-            case "D": respToon.setPos(respToon, 3, 3); break;
-            case "T": respToon.setPos(respToon, 0, 1); break;
-        }
+    //Sets toon to death
+    public void notAlive(Toon shotToon) {
+        shotToon.alive = false;
     }
     
     //Setter methods
@@ -800,6 +797,10 @@ public class Toon {
     
     public void setNameN(Toon toonN) {
         toonN.name = toonN.name.substring(0, 1) + "   ";
+    }
+    
+    public void setNameD(Toon toonN, Toon mar) {
+        toonN.name = mar.name;
     }
     
     public void setNameF(Toon toonN) {
